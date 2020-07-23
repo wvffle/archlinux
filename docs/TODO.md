@@ -1,0 +1,27 @@
+- monitoring smart
+- https://wiki.archlinux.org/index.php/USBGuard
+- sandboxing
+  - https://wiki.archlinux.org/index.php/Systemd-nspawn
+  - https://wiki.archlinux.org/index.php/Firejail
+  - https://wiki.archlinux.org/index.php/Bubblewrap
+- login
+  - https://wiki.archlinux.org/index.php/Security#Enforce_a_delay_after_a_failed_login_attempt
+  - https://wiki.archlinux.org/index.php/Security#Lockout_user_after_three_failed_login_attempts
+  - https://github.com/rafket/pam_duress
+- https://wiki.archlinux.org/index.php/Su#su_and_wheel
+- ssh
+  - https://wiki.archlinux.org/index.php/OpenSSH#Deny
+  - https://wiki.archlinux.org/index.php/OpenSSH#Securing_the_authorized_keys_file
+  - brute force protection
+    - https://github.com/jtniehof/pam_shield
+    - https://wiki.archlinux.org/index.php/Pam_abl
+  - https://wiki.archlinux.org/index.php/OpenSSH#Two-factor_authentication_and_public_keys
+    - https://wiki.archlinux.org/index.php/Pam_oath
+  - https://wiki.archlinux.org/index.php/OpenSSH#Force_public_key_authentication
+- firewall
+- https://wiki.archlinux.org/index.php/Security#Automatic_logout
+- CVE alert
+  - scan https://security.archlinux.org/
+  - check if there is a vulnerability for one of packages installed on the system
+    - Alert if so
+    - Alert an update if fixed
