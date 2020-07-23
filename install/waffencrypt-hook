@@ -1,0 +1,32 @@
+#!/usr/bin/ash
+
+run_hook () {
+  modprobe -a -q dm-crypt >/dev/null 2>&1
+  modprobe loop
+
+  [ "${quiet}" = "y" ] && CSQUIET=">/dev/null"
+
+  echo -n 'Waiting for key'
+
+  while [ ! -L '/dev/disk/by-id/DEVICE_USB' ]; do
+    echo -n '.'
+    sleep 1
+  done
+
+  echo ''
+
+  cryptsetup open /dev/disk/by-id/DEVICE_USB cryptboot
+
+  mkdir -p /mnt
+  mount /dev/mapper/cryptboot /mnt
+  cd /mnt
+
+  cryptsetup open key.img lukskey
+
+  cryptsetup --header header.img --key-file=/dev/mapper/lukskey --keyfile-size=SIZE --keyfile-offset=OFFSET open /dev/disk/by-id/DEVICE_HDD enc_hdd
+  cryptsetup --header header.img --key-file=/dev/mapper/lukskey --keyfile-size=SIZE --keyfile-offset=OFFSET open /dev/disk/by-id/DEVICE_SSD enc_ssd
+
+  cd /
+  cryptsetup close lukskey
+  umount /mnt
+}
