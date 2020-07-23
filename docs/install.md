@@ -253,7 +253,7 @@ curl -sL https://git.io/JfZTO | sed \
   -e "s/DEVICE_USB/$ID_USB/" \
   -e "s/DEVICE_HHD/$ID_HDD/" \
   -e "s/DEVICE_SSD/$ID_SSD/" \
-  -e "s/OFFSET/$OFFSET/" > /etc/initcpio/initcpio/hooks/waffencrypt
+  -e "s/OFFSET/$OFFSET/" > /etc/initcpio/hooks/waffencrypt
   
 curl -sL https://git.io/JfZTq > /etc/initcpio/install/waffencrypt
 ```
