@@ -248,14 +248,14 @@ echo "127.0.1.1	 $HOSTNAME.localdomain	 $HOSTNAME" > /etc/hosts
 ### Download the hook
 ```sh
 
-curl -sL https://git.io/JfZTO | sed \
+curl -sL https://git.io/JJ8IR | sed \
   -e "s/SIZE/$KEY_SIZE/" \
   -e "s/DEVICE_USB/$ID_USB/" \
   -e "s/DEVICE_HHD/$ID_HDD/" \
   -e "s/DEVICE_SSD/$ID_SSD/" \
   -e "s/OFFSET/$OFFSET/" > /etc/initcpio/hooks/waffencrypt
   
-curl -sL https://git.io/JfZTq > /etc/initcpio/install/waffencrypt
+curl -sL https://git.io/JJ8Iu > /etc/initcpio/install/waffencrypt
 ```
 
 ### Add hook to the mkinitcpio
