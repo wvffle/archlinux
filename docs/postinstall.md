@@ -112,7 +112,7 @@ mv ~/.nvm ~/.local/share/nvm
 
 Fetch chpwd-hook.zsh
 ```sh
-curl -sL https://git.io/JfCQQ > ~/.local/share/nvm/chpwd-hook.zsh
+curl -sL https://git.io/JJ8Ia > ~/.local/share/nvm/chpwd-hook.zsh
 ```
 
 Now, add following to your `.zshrc`
