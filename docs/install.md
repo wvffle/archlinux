@@ -55,6 +55,8 @@ cfdisk $DEV_USB
 ```sh
 export ID_HDD=$(ls -lt /dev/disk/by-id | grep -m 1 $DEVNAME_HDD | awk '{print $9}')
 export ID_SSD=$(ls -lt /dev/disk/by-id | grep -m 1 $DEVNAME_SSD | awk '{print $9}')
+
+# Make sure that you specify partition 2
 export ID_USB=$(ls -lt /dev/disk/by-id | grep -m 1 ${DEVNAME_USB}2 | awk '{print $9}')
 ```
 
@@ -90,7 +92,7 @@ export KEY_SIZE=8192 # max 8192
 export OFFSET=165984
 
 cryptsetup --cipher=serpent-xts-plain64 --hash=sha512 --key-size=512 --key-file=/dev/mapper/lukskey --keyfile-size=$KEY_SIZE --keyfile-offset=$OFFSET --align-payload 4096 --header header.img luksFormat $DEV_HDD
-cryptsetup $--cipher=serpent-xts-plain64 --hash=sha512 --key-size=512 --key-file=/dev/mapper/lukskey --keyfile-size=$KEY_SIZE --keyfile-offset=$OFFSET --align-payload 4096 --header header.img luksFormat $DEV_SSD
+cryptsetup --cipher=serpent-xts-plain64 --hash=sha512 --key-size=512 --key-file=/dev/mapper/lukskey --keyfile-size=$KEY_SIZE --keyfile-offset=$OFFSET --align-payload 4096 --header header.img luksFormat $DEV_SSD
 
 # Open HDD and SSD
 cryptsetup --header header.img --key-file=/dev/mapper/lukskey --keyfile-offset=$OFFSET --keyfile-size=$KEY_SIZE open $DEV_HDD enc_hdd
@@ -346,7 +348,7 @@ yay -S cryptboot sbupdate
 # Exit the user account
 exit
 
-echo "cryptboot  /dev/disk/by-id/$UUID_USB  none  luks" > /etc/crypttab
+echo "cryptboot  /dev/disk/by-id/$ID_USB  none  luks" > /etc/crypttab
 cryptboot-efikeys create
 cryptboot-efikeys enroll
 
