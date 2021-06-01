@@ -10,6 +10,7 @@
   - https://github.com/rafket/pam_duress
 - https://wiki.archlinux.org/index.php/Su#su_and_wheel
 - ssh
+  - https://wiki.archlinux.org/title/Port_knocking
   - https://wiki.archlinux.org/index.php/OpenSSH#Deny
   - https://wiki.archlinux.org/index.php/OpenSSH#Securing_the_authorized_keys_file
   - brute force protection
